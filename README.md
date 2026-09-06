@@ -1,36 +1,32 @@
 <p align="center">
-  <img src="assets/header.svg" alt="Sergey Yashchuk — API integrations, automation and developer tools" width="100%" />
+  <img src="assets/header.svg" alt="Sergey Yashchuk — AI workflows, MCP and automation pipelines" width="100%" />
 </p>
 
-I’m **Sergey Yashchuk**, a software engineer building integrations and small tools that solve a specific problem. My public work spans **TypeScript & MCP**, **PHP & WordPress**, and **Kotlin & Android**.
+I’m **Sergey Yashchuk**, a software engineer and **AI enthusiast** interested in connecting AI agents to useful tools and repeatable workflows.
+
+My focus is **MCP servers, automation pipelines and developer tools**. I’m also exploring reusable **agent skills**: clear instructions, tool use and checks that make a workflow easier to repeat.
 
 [Explore selected work](PORTFOLIO.md) · [Discuss a project](mailto:sergey.yashchuk1@gmail.com)
 
-## Selected work
+## Featured / MCP Lead CRM
 
-### 01 / MCP Lead CRM
 **A lead pipeline controlled through an MCP client.**
 
-A local TypeScript server for lead records, follow-ups, CSV import/export and an optional n8n webhook. Includes a recorded demo, fictional seed data and automated tests. The demo works without API keys; its webhook call is a dry run.
+A local TypeScript server that connects an MCP client to lead records, follow-ups, CSV import/export and an optional n8n webhook. It includes tools, resources and a prompt, with a recorded demo and automated tests.
+
+- **Try it locally:** fictional seed data; no API keys needed for the demo.
+- **Inspect the workflow:** stdio MCP calls and HTTP webhook requests are covered by tests.
+- **See the limits:** the recorded webhook call is a dry run; the example email node is disabled.
 
 [Source & setup](https://github.com/svtxvt/mcp-lead-crm) · [Watch the demo](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo.gif) · [Tests](https://github.com/svtxvt/mcp-lead-crm/tree/main/tests)
 
-### 02 / Simple Outbound Webhooks
-**Connect WordPress events to the rest of a workflow.**
+## More engineering work
 
-A PHP plugin that sends selected post, comment and registration events to HTTPS endpoints. Optional HMAC-SHA256 signatures, a delivery log and a Docker test harness make the integration inspectable.
+- **[Android Force 120Hz](https://github.com/svtxvt/android-force-120hz)** — a Kotlin accessibility utility for LTPO displays, with a demo and published APKs. Device compatibility and battery use remain practical trade-offs.
+- **[Simple Outbound Webhooks](https://github.com/svtxvt/simple-outbound-webhooks)** — an event-to-HTTPS integration for WordPress, with optional HMAC signatures, a delivery log and a Docker test harness.
 
-[Source & setup](https://github.com/svtxvt/simple-outbound-webhooks) · [Verification notes](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/QUALITY-NOTES.md) · [End-to-end check](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/dev/e2e.sh)
+## Let’s build something useful
 
-### 03 / Android Force 120Hz
-**An Android utility for aggressive LTPO refresh-rate downscaling.**
-
-A Kotlin accessibility service uses a small animated overlay to keep display content active. Published APK releases and a demo show the result; device compatibility and battery use remain practical trade-offs.
-
-[Source & demo](https://github.com/svtxvt/android-force-120hz) · [APK releases](https://github.com/svtxvt/android-force-120hz/releases)
-
-## Work with me
-
-I’m interested in scoped API integrations, MCP tools, webhook components and maintenance tasks. A useful starting point is one concrete problem, a sample input and the expected result. We agree scope and handover before work starts.
+I’m interested in collaborating on **MCP integrations, AI-assisted workflows, automation pipelines and agent skills**. A good starting point is one concrete task, a non-sensitive sample input and a result we can check.
 
 **[sergey.yashchuk1@gmail.com](mailto:sergey.yashchuk1@gmail.com)**
