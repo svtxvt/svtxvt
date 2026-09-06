@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
-<title id="title">Sergey Yashchuk — Software engineer</title>
-<desc id="desc">API integrations, automation and developer tools. Three connected nodes illustrate input, transformation and output.</desc>
+<title id="title">Sergey Yashchuk — Software engineer and AI enthusiast</title>
+<desc id="desc">AI workflows, MCP and automation pipelines. Three connected nodes illustrate input, transformation and output.</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101c30"/><stop offset="1" stop-color="#0c1220"/></linearGradient><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#92b8df" stroke-opacity=".055"/></pattern></defs>
 <rect width="1200" height="340" rx="22" fill="url(#bg)"/>
 <rect width="1200" height="340" rx="22" fill="url(#grid)"/>
 <rect x="52" y="53" width="30" height="3" rx="1.5" fill="#75e0c1"/>
-<text x="97" y="61" fill="#a6b8ce" font-family="Arial,Helvetica,sans-serif" font-size="15" letter-spacing="3">SOFTWARE ENGINEER</text>
+<text x="97" y="61" fill="#a6b8ce" font-family="Arial,Helvetica,sans-serif" font-size="15" letter-spacing="3">SOFTWARE ENGINEER / AI ENTHUSIAST</text>
 <text x="50" y="133" fill="#f4f7fc" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="700" letter-spacing="-1.5">Sergey Yashchuk</text>
-<text x="53" y="180" fill="#c0cede" font-family="Arial,Helvetica,sans-serif" font-size="23">API integrations. Automation. Developer tools.</text>
-<text x="53" y="271" fill="#75e0c1" font-family="Arial,Helvetica,sans-serif" font-size="15" letter-spacing="1.2">TYPESCRIPT / PHP / KOTLIN</text>
+<text x="53" y="180" fill="#c0cede" font-family="Arial,Helvetica,sans-serif" font-size="23">AI workflows. MCP. Automation pipelines.</text>
+<text x="53" y="271" fill="#75e0c1" font-family="Arial,Helvetica,sans-serif" font-size="15" letter-spacing="1.2">MCP / AGENT SKILLS / TYPESCRIPT</text>
 <g fill="none" stroke="#75e0c1" stroke-width="2"><path d="M825 162h42c18 0 20-41 39-41h35"/><path d="M825 162h42c18 0 20 55 39 55h35"/></g>
 <rect x="769" y="134" width="58" height="58" rx="14" fill="#1b3041" stroke="#75e0c1"/>
 <path d="m790 153-9 9 9 9m16-18 9 9-9 9" fill="none" stroke="#75e0c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="939" y="93" width="135" height="56" rx="12" fill="#182539" stroke="#354e67"/>
-<text x="1007" y="127" text-anchor="middle" fill="#dce7f5" font-family="Arial,Helvetica,sans-serif" font-size="16">Transform</text>
+<text x="1007" y="127" text-anchor="middle" fill="#dce7f5" font-family="Arial,Helvetica,sans-serif" font-size="16">Tools</text>
 <rect x="939" y="189" width="135" height="56" rx="12" fill="#182539" stroke="#354e67"/>
-<text x="1007" y="223" text-anchor="middle" fill="#dce7f5" font-family="Arial,Helvetica,sans-serif" font-size="16">Connect</text>
+<text x="1007" y="223" text-anchor="middle" fill="#dce7f5" font-family="Arial,Helvetica,sans-serif" font-size="16">Workflows</text>
 <circle cx="867" cy="162" r="4" fill="#75e0c1"/>
 <text x="1148" y="298" text-anchor="end" fill="#71879f" font-family="Arial,Helvetica,sans-serif" font-size="14">github.com/svtxvt</text>
 </svg>
