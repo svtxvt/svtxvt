@@ -1,6 +1,6 @@
-# Selected engineering work
+# AI tools, workflows & selected engineering
 
-Three public projects by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)). Each links to the implementation and evidence you can inspect.
+Public work by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)), a software engineer and AI enthusiast. My current focus is MCP integrations, automation pipelines and reusable agent skills. MCP Lead CRM is the main public example of that direction; the other projects show my broader engineering experience. Each case links to implementation and evidence you can inspect.
 
 ## MCP Lead CRM
 
@@ -14,16 +14,6 @@ Three public projects by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)). 
 
 **Scope.** This is a local integration prototype with fictional demo records. The recorded webhook call is a dry run; the example email node is disabled. It does not establish a customer deployment or a paid business result. MIT licensed.
 
-## Simple Outbound Webhooks
-
-**Problem.** WordPress site events need to reach an external workflow through a small, inspectable integration.
-
-**Implementation.** I built a PHP plugin for selected post, comment and registration events. It sends JSON to configured HTTPS endpoints, supports an optional HMAC-SHA256 signature, and includes a delivery log, test button and developer filters. The signed message combines a timestamp with the raw request body so the receiving service can verify it.
-
-**Evidence.** The public repository includes [the plugin](https://github.com/svtxvt/simple-outbound-webhooks), a distributable ZIP, [quality notes](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/QUALITY-NOTES.md) and a [Docker end-to-end harness](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/dev/e2e.sh) with a signature-verifying receiver. The notes record Plugin Check, PHPCS and signed-request checks.
-
-**Scope.** These are repository verification artifacts, not customer adoption figures. A public repository or ZIP does not mean approval in the WordPress plugin directory. GPL-2.0-or-later.
-
 ## Android Force 120Hz
 
 **Problem.** Some Android LTPO displays reduce their refresh rate on static content even when a user requests a higher rate through settings or ADB.
@@ -34,11 +24,21 @@ Three public projects by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)). 
 
 **Scope.** Behaviour depends on the device and OEM; maintaining a higher refresh rate uses more battery. Source contains Robolectric tests, but the current published release workflow is failing, so a passing CI build is not claimed. The license is **CC BY-NC-SA 4.0**, including its non-commercial restriction.
 
+## Simple Outbound Webhooks
+
+**Problem.** WordPress site events need to reach an external workflow through a small, inspectable integration.
+
+**Implementation.** I built a PHP plugin for selected post, comment and registration events. It sends JSON to configured HTTPS endpoints, supports an optional HMAC-SHA256 signature, and includes a delivery log, test button and developer filters. The signed message combines a timestamp with the raw request body so the receiving service can verify it.
+
+**Evidence.** The public repository includes [the plugin](https://github.com/svtxvt/simple-outbound-webhooks), a distributable ZIP, [quality notes](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/QUALITY-NOTES.md) and a [Docker end-to-end harness](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/dev/e2e.sh) with a signature-verifying receiver. The notes record Plugin Check, PHPCS and signed-request checks.
+
+**Scope.** These are repository verification artifacts, not customer adoption figures. A public repository or ZIP does not mean approval in the WordPress plugin directory. GPL-2.0-or-later.
+
 ---
 
 ## Collaboration
 
-I’m interested in focused integration and maintenance work: an API adapter, a webhook component, an MCP tool, or a reproducible bug with a clear acceptance check.
+I’m interested in collaborating on MCP integrations, AI-assisted workflows, automation pipelines and reusable agent skills. I prefer a focused task with a clear acceptance check and a handover someone else can run.
 
 Send a short description, a non-sensitive sample input and the expected output to **[sergey.yashchuk1@gmail.com](mailto:sergey.yashchuk1@gmail.com)**. We can agree scope, delivery and payment terms before starting.
 
