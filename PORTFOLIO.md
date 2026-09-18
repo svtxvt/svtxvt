@@ -1,23 +1,23 @@
 # AI tools, workflows & selected engineering
 
-Public work by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)), a software engineer and AI enthusiast. My current focus is MCP integrations and automation pipelines with n8n; I’m also exploring reusable agent skills. MCP Lead CRM is the main public example of that direction; the other projects show my broader engineering experience. Each case links to implementation and evidence you can inspect.
+Public work by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)), a senior full-stack engineer (TypeScript, Node.js, React). My current focus is MCP integrations and automation pipelines with n8n; I’m also exploring reusable agent skills. MCP Lead CRM is the main public example of that direction; the other projects show my broader engineering experience. Each case links to implementation and evidence you can inspect.
 
 ## MCP Lead CRM
 
 **Problem.** A small lead pipeline needs structured records and follow-ups that an MCP client can work with, without first setting up a hosted CRM.
 
-**Implementation.** I built a local TypeScript MCP server with tools for leads, activities, pipeline stages, due follow-ups, CSV import/export and an optional n8n webhook. Data lives in a JSON store. Writes use atomic file replacement, and the demo seed refuses to overwrite a non-empty store unless explicitly requested.
+**Implementation.** I built a local TypeScript MCP server with tools for leads, activities, pipeline stages, due follow-ups, CSV import/export and an optional n8n webhook. Data lives in a JSON store. Writes use atomic file replacement, and the demo seed refuses to overwrite a non-empty store unless explicitly requested. The server is built on the MCP TypeScript SDK v2 and serves both the 2026-07-28 protocol revision (stateless, `server/discover`) and 2025-era clients from one stdio entry point.
 
 **Evidence.** The repository includes [source and installation steps](https://github.com/svtxvt/mcp-lead-crm), a [recorded demo](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo.gif), a [walkthrough](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo-script.md), [tests](https://github.com/svtxvt/mcp-lead-crm/tree/main/tests) and an [n8n workflow example](https://github.com/svtxvt/mcp-lead-crm/blob/main/examples/n8n-followup-email.json).
 
 Local prototype with fictional demo data; the recorded webhook call is a dry run.
 
 <details>
-<summary>Verification and demo scope — 6 September 2026</summary>
+<summary>Verification and demo scope — 18 September 2026</summary>
 
 **n8n starter.** The [workflow JSON](https://github.com/svtxvt/mcp-lead-crm/blob/main/examples/n8n-followup-email.json) filters `followup_email` events and maps the event, lead ID and payload to a disabled email placeholder. It is inactive and has no credentials; it does not implement the full validation/review path of a scoped client component.
 
-**Verification.** A fresh checkout of commit `36450af06b7bee2a5a51a6b5df34d7c1a45d9021` passed `npm ci` and all **21 tests in 5 files** with Node.js 22.22.2. The tests include stdio MCP calls and HTTP webhook requests to a local receiver. [Store tests](https://github.com/svtxvt/mcp-lead-crm/blob/36450af06b7bee2a5a51a6b5df34d7c1a45d9021/tests/store.test.ts) cover concurrent writes, CSV round trips and rejected out-of-directory paths. This is a local test result; the repository did not yet have a CI workflow at that commit.
+**Verification.** The `main` branch as of 18 September 2026 passes `npm ci` and all **24 tests in 6 files** with Node.js 22.22.2. The tests include stdio MCP calls, HTTP webhook requests to a local receiver, and [protocol-era negotiation](https://github.com/svtxvt/mcp-lead-crm/blob/main/tests/protocol.test.ts): one client pinned to revision 2026-07-28, one negotiating automatically and one using the 2025 `initialize` handshake all see the same ten tools. [Store tests](https://github.com/svtxvt/mcp-lead-crm/blob/main/tests/store.test.ts) cover concurrent writes, CSV round trips and rejected out-of-directory paths. A [GitHub Actions workflow](https://github.com/svtxvt/mcp-lead-crm/actions/workflows/ci.yml) runs the same suite on Node.js 20 and 22.
 
 **Scope.** This is a local integration prototype with fictional demo records. The recorded webhook call is a dry run; the example email node is disabled. MIT licensed.
 
@@ -40,15 +40,15 @@ The release workflow was failing at this check; the published APKs are not evide
 
 </details>
 
-## Simple Outbound Webhooks
+## Outhook Outbound Webhooks
 
 **Problem.** WordPress site events need to reach an external workflow through a small, inspectable integration.
 
-**Implementation.** I built a PHP plugin for selected post, comment and registration events. It sends JSON to configured HTTPS endpoints, supports an optional HMAC-SHA256 signature, and includes a delivery log, test button and developer filters. The signed message combines a timestamp with the raw request body so the receiving service can verify it.
+**Implementation.** I built a PHP plugin for selected post, comment and registration events. It sends JSON to configured HTTPS endpoints, supports an optional HMAC-SHA256 signature per endpoint, a retry mode, and includes a delivery log, test button and developer filters. The signed message combines a timestamp with the raw request body so the receiving service can verify it.
 
-**Evidence.** The public repository includes [the plugin](https://github.com/svtxvt/simple-outbound-webhooks), a distributable ZIP, [quality notes](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/QUALITY-NOTES.md) and a [Docker end-to-end harness](https://github.com/svtxvt/simple-outbound-webhooks/blob/main/dev/e2e.sh) with a signature-verifying receiver. The notes record Plugin Check, PHPCS and signed-request checks.
+**Evidence.** The plugin is [listed on wordpress.org](https://wordpress.org/plugins/outhook-outbound-webhooks/) (version 1.0.0, added 11 September 2026 after the wordpress.org plugin review). The [repository](https://github.com/svtxvt/outhook-outbound-webhooks) includes the plugin, [quality notes](https://github.com/svtxvt/outhook-outbound-webhooks/blob/main/QUALITY-NOTES.md) and a [Docker end-to-end harness](https://github.com/svtxvt/outhook-outbound-webhooks/blob/main/dev/e2e.sh) with a signature-verifying receiver. The notes record Plugin Check, PHPCS and signed-request checks.
 
-**Scope.** GPL-2.0-or-later. The linked checks are repository verification artifacts; they were not rerun for this portfolio update.
+**Scope.** GPL-2.0-or-later. Released in September 2026; the listing is the evidence, not usage numbers. The linked checks are repository verification artifacts.
 
 ---
 
