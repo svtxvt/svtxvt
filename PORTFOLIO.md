@@ -1,63 +1,52 @@
-# AI tools, workflows & selected engineering
+# Selected engineering work
 
-Public work by Sergey Yashchuk ([svtxvt](https://github.com/svtxvt)), a senior full-stack engineer (TypeScript, Node.js, React). My current focus is MCP integrations and automation pipelines with n8n; I’m also exploring reusable agent skills. MCP Lead CRM is the main public example of that direction; the other projects show my broader engineering experience. Each case links to implementation and evidence you can inspect.
+Sergey Yashchuk · Senior full-stack engineer · 6+ years · TypeScript, Node.js, React
+
+## Commercial case: collaborative workflow editor
+
+At a US enterprise customer-service platform, a manual workflow configuration process took weeks.
+
+I led a real-time collaborative workflow editor end to end: a React Flow canvas with Yjs CRDT over WebSocket, Redis pub/sub for horizontal scaling and MongoDB persistence. It supported 40+ node types, conditional branching and up to 10 concurrent editors.
+
+The editor replaced the manual process with one that takes days and became a key feature in enterprise sales demos.
+
+At the same platform, I also:
+
+- Maintained the shared GraphQL data layer.
+- Built serverless microservices and background jobs for webhooks and third-party integrations.
+- Raised front-end test coverage from about 30% to 70%+.
+- Mentored two junior developers.
 
 ## MCP Lead CRM
 
-**Problem.** A small lead pipeline needs structured records and follow-ups that an MCP client can work with, without first setting up a hosted CRM.
+**Personal project.** A local TypeScript MCP server for lead records, activities, pipeline stages, follow-ups and CSV import/export, with an optional n8n webhook.
 
-**Implementation.** I built a local TypeScript MCP server with tools for leads, activities, pipeline stages, due follow-ups, CSV import/export and an optional n8n webhook. Data lives in a JSON store. Writes use atomic file replacement, and the demo seed refuses to overwrite a non-empty store unless explicitly requested. The server is built on the MCP TypeScript SDK v2 and serves both the 2026-07-28 protocol revision (stateless, `server/discover`) and 2025-era clients from one stdio entry point.
+The JSON store uses atomic file replacement; demo seeding protects existing records. Automated tests run in [CI](https://github.com/svtxvt/mcp-lead-crm/actions/workflows/ci.yml) and cover stdio MCP calls, webhook delivery to a local receiver, concurrent writes, CSV round trips and rejected out-of-directory paths.
 
-**Evidence.** The repository includes [source and installation steps](https://github.com/svtxvt/mcp-lead-crm), a [recorded demo](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo.gif), a [walkthrough](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo-script.md), [tests](https://github.com/svtxvt/mcp-lead-crm/tree/main/tests) and an [n8n workflow example](https://github.com/svtxvt/mcp-lead-crm/blob/main/examples/n8n-followup-email.json).
+[Source and setup](https://github.com/svtxvt/mcp-lead-crm) · [Recorded demo](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo.gif) · [Walkthrough](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo-script.md) · [Tests](https://github.com/svtxvt/mcp-lead-crm/tree/main/tests) · [n8n starter](https://github.com/svtxvt/mcp-lead-crm/blob/main/examples/n8n-followup-email.json)
 
-Local prototype with fictional demo data; the recorded webhook call is a dry run.
-
-<details>
-<summary>Verification and demo scope — 18 September 2026</summary>
-
-**n8n starter.** The [workflow JSON](https://github.com/svtxvt/mcp-lead-crm/blob/main/examples/n8n-followup-email.json) filters `followup_email` events and maps the event, lead ID and payload to a disabled email placeholder. It is inactive and has no credentials; it does not implement the full validation/review path of a scoped client component.
-
-**Verification.** The `main` branch as of 18 September 2026 passes `npm ci` and all **24 tests in 6 files** with Node.js 22.22.2. The tests include stdio MCP calls, HTTP webhook requests to a local receiver, and [protocol-era negotiation](https://github.com/svtxvt/mcp-lead-crm/blob/main/tests/protocol.test.ts): one client pinned to revision 2026-07-28, one negotiating automatically and one using the 2025 `initialize` handshake all see the same ten tools. [Store tests](https://github.com/svtxvt/mcp-lead-crm/blob/main/tests/store.test.ts) cover concurrent writes, CSV round trips and rejected out-of-directory paths. A [GitHub Actions workflow](https://github.com/svtxvt/mcp-lead-crm/actions/workflows/ci.yml) runs the same suite on Node.js 20 and 22.
-
-**Scope.** This is a local integration prototype with fictional demo records. The recorded webhook call is a dry run; the example email node is disabled. MIT licensed.
-
-</details>
-
-## Android Force 120Hz
-
-**Problem.** Some Android LTPO displays reduce their refresh rate on static content even when a user requests a higher rate through settings or ADB.
-
-**Implementation.** I built a Kotlin app with an accessibility service that animates a small overlay, plus controls for startup stability after reboot. The repository explains installation, signing and OEM-specific battery/autostart settings.
-
-**Evidence.** There is a [demonstration](https://github.com/svtxvt/android-force-120hz#demo), [source](https://github.com/svtxvt/android-force-120hz), and [two published APK releases](https://github.com/svtxvt/android-force-120hz/releases). GitHub reported **1,179 APK asset downloads** across v1.0.0 and v1.1.0 on **6 September 2026** (57 + 1,122). This is a download count, not a count of users or successful installations.
-
-**Scope.** Device/OEM compatibility and battery use are practical trade-offs. **CC BY-NC-SA 4.0**, including a non-commercial restriction.
-
-<details>
-<summary>Build verification — 6 September 2026</summary>
-
-The release workflow was failing at this check; the published APKs are not evidence of a passing build of the latest source.
-
-</details>
+Local prototype with fictional data: the recorded webhook call is a dry run, and the inactive n8n starter has a disabled email placeholder and no credentials. SDK, protocol compatibility and test-matrix details are in the [project README](https://github.com/svtxvt/mcp-lead-crm#readme).
 
 ## Outhook Outbound Webhooks
 
-**Problem.** WordPress site events need to reach an external workflow through a small, inspectable integration.
+**Personal project.** A PHP plugin that sends selected WordPress post, comment and registration events to HTTPS endpoints. It supports optional HMAC-SHA256 signatures, retries and delivery diagnostics through a delivery log and test button.
 
-**Implementation.** I built a PHP plugin for selected post, comment and registration events. It sends JSON to configured HTTPS endpoints, supports an optional HMAC-SHA256 signature per endpoint, a retry mode, and includes a delivery log, test button and developer filters. The signed message combines a timestamp with the raw request body so the receiving service can verify it.
+[Listed on wordpress.org](https://wordpress.org/plugins/outhook-outbound-webhooks/) since **11 September 2026**, after the plugin review. The [source](https://github.com/svtxvt/outhook-outbound-webhooks) includes [quality notes](https://github.com/svtxvt/outhook-outbound-webhooks/blob/main/QUALITY-NOTES.md) recording Plugin Check, PHPCS and signed-request checks, plus a [Docker end-to-end harness](https://github.com/svtxvt/outhook-outbound-webhooks/blob/main/dev/e2e.sh) with a signature-verifying receiver.
 
-**Evidence.** The plugin is [listed on wordpress.org](https://wordpress.org/plugins/outhook-outbound-webhooks/) (version 1.0.0, added 11 September 2026 after the wordpress.org plugin review). The [repository](https://github.com/svtxvt/outhook-outbound-webhooks) includes the plugin, [quality notes](https://github.com/svtxvt/outhook-outbound-webhooks/blob/main/QUALITY-NOTES.md) and a [Docker end-to-end harness](https://github.com/svtxvt/outhook-outbound-webhooks/blob/main/dev/e2e.sh) with a signature-verifying receiver. The notes record Plugin Check, PHPCS and signed-request checks.
+## Android Force 120Hz
 
-**Scope.** GPL-2.0-or-later. Released in September 2026; the listing is the evidence, not usage numbers. The linked checks are repository verification artifacts.
+**Personal project.** A Kotlin accessibility utility for Android LTPO displays that lower their refresh rate on static content. It animates a small overlay and provides startup controls; the repository documents installation, signing and OEM battery/autostart settings.
 
----
+**1,179 APK downloads across two releases, as of 6 September 2026.**
+
+[Source](https://github.com/svtxvt/android-force-120hz) · [Demo](https://github.com/svtxvt/android-force-120hz#demo) · [APK releases](https://github.com/svtxvt/android-force-120hz/releases)
+
+Device compatibility and battery use vary. Licensed under CC BY-NC-SA 4.0, including its non-commercial restriction.
+
+**Build status, 6 September 2026:** the release workflow was failing at that check.
 
 ## Collaboration
 
-I’m interested in collaborating on MCP integrations, AI-assisted workflows and n8n pipelines, and in exploring reusable agent skills. I prefer a focused task with a clear acceptance check and a handover someone else can run.
+Available for [part-time AI integration contracts](COLLABORATION.md): 10–20 hours/week, in fixed working slots with 2–3 hours of daily CET/CEST overlap.
 
-**For agencies:** [one scoped n8n component — deliverables and fit](COLLABORATION.md).
-
-Send a short description, a non-sensitive sample input and the expected output to **[sergey.yashchuk1@gmail.com](mailto:sergey.yashchuk1@gmail.com)**. We can agree scope, delivery and payment terms before starting.
-
-[Back to profile](README.md)
+**[sergey.yashchuk1@gmail.com](mailto:sergey.yashchuk1@gmail.com)** · [Profile](README.md)

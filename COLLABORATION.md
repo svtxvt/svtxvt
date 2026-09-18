@@ -1,33 +1,27 @@
-# One small component for an existing n8n workflow
+# Part-time AI integration contracts
 
-A first assignment can be one agreed data-validation or field-mapping component. Useful when your team already owns the integration and wants to hand over a clearly defined piece of implementation.
+I build MCP integrations, automation workflows and internal tools. We can start with a scoped paid task, agreed acceptance checks and a documented handover.
 
-## Example task
+I’m Sergey Yashchuk, a senior full-stack engineer with 6+ years of experience in TypeScript, Node.js and React. Available for remote contracts: **10–20 hours/week**, in fixed working slots with **2–3 hours of daily CET/CEST overlap**.
 
-Take one agreed JSON input format, check the required fields, and map valid records to one agreed output schema. Route records needing review with a reason. The rules come from your specification; this is a proposed assignment, not a ready-made universal validator.
+## Contract work
 
-## What you receive
+- MCP servers and integrations connecting AI clients to structured data and tools.
+- Automation workflows, webhooks and third-party integrations.
+- Internal tools and collaborative interfaces, from implementation through testing and handover.
 
-- Workflow JSON for the agreed n8n version.
-- Synthetic test inputs, expected outputs and recorded check results.
-- A short import/setup guide and one revision within the agreed scope.
+My [portfolio](PORTFOLIO.md) includes an end-to-end commercial workflow editor, the personal [MCP Lead CRM prototype](https://github.com/svtxvt/mcp-lead-crm), and the shipped [Outhook WordPress plugin](https://wordpress.org/plugins/outhook-outbound-webhooks/).
 
-Fixes needed to pass the agreed acceptance cases are included; the revision is one additional change request within the same agreed scope.
+## Start with a paid 10-hour task
 
-Before work starts, we agree the input/output contract, acceptance cases (including normal, invalid and missing-field input), delivery date and payment terms. Your team connects credentials, integrates the component and deploys it. Live CRM integration, hosting and ongoing support are outside this component.
+We agree a focused deliverable, acceptance checks and a working slot before starting. The first task includes implementation, recorded check results and a documented handover with setup instructions.
 
-## Work you can inspect
+For example, a data-validation and field-mapping step can check required fields, map valid records to an agreed output schema and route records needing review with a reason. Synthetic examples cover valid, invalid and missing-field inputs.
 
-My [MCP Lead CRM](https://github.com/svtxvt/mcp-lead-crm) shows TypeScript MCP tools, structured records, CSV handling and an optional n8n webhook, with a [demo](https://github.com/svtxvt/mcp-lead-crm/blob/main/docs/demo.gif) and [tests](https://github.com/svtxvt/mcp-lead-crm/tree/main/tests). It is a local prototype; the recorded webhook is a dry run. It demonstrates related integration work, not a completed client n8n deployment.
+## Contact
 
-The public [n8n starter JSON](https://github.com/svtxvt/mcp-lead-crm/blob/main/examples/n8n-followup-email.json) shows event filtering and payload mapping. It is inactive, with a disabled email placeholder; it does not implement a complete validation/review path. An existing synthetic conditional/mapping example with a mock HTTP handoff is also available on request.
-
-## Start with a short description
-
-Tell me the input, the expected result and your n8n version. A brief description is enough to check fit; use synthetic examples when we agree the details. Please leave out credentials and customer data.
+Send a short description of your system, the expected result and your preferred working slots. Use non-sensitive examples and leave out credentials and customer data.
 
 **[sergey.yashchuk1@gmail.com](mailto:sergey.yashchuk1@gmail.com)**
-
-Price and delivery are confirmed for the agreed scope. Other MCP and AI-workflow projects are scoped separately.
 
 [Profile](README.md) · [Selected work](PORTFOLIO.md)
